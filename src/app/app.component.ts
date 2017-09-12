@@ -1,5 +1,5 @@
+import { FirebaseApp } from 'angularfire2';
 import { Component } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,11 @@ import { AngularFireModule } from 'angularfire2';
 })
 export class AppComponent {
   title = 'app';
+  cuisines;
 
-  constructor(af: AngularFireModule) {
-    console.log(af);
+  constructor(firebase: FirebaseApp) {
+    const ref = firebase.database().ref();
+    this.cuisines = ref;
+    console.log(ref);
   }
 }
